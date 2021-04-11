@@ -1,0 +1,5 @@
+<launch>
+    <!-- Start the velocities conversion program -->
+    <node pkg="agv_convert_velocities" type="convert_vels.py" name="convert_vels_node" output="screen" />
+    
+</launch>

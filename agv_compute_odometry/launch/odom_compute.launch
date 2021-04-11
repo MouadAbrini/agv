@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="agv_compute_odometry" type="odometry.py" name="odometry_compute_node" output="screen" />
+</launch>

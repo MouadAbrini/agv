@@ -29,7 +29,9 @@
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-urdf -model agv -param robot_description"/> 
 
-  <include file="$(find agv_control)/launch/agv_control.launch">
+  <include file="$(find agv_control)/launch/agv_control.launch"/>
+  <include file="$(find agv_convert_velocities)/launch/move_agv.launch"/>
+  <include file="$(find agv_lidar_filter)/launch/filter.launch"/>
+  <include file="$(find agv_compute_odometry)/launch/odom_compute.launch"/>
 
-	</include>
 </launch>
