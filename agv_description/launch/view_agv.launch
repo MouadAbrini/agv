@@ -1,0 +1,8 @@
+<launch>
+	<arg name="model" />
+	<!-- Parsing xacro and setting robot_description parameter -->
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(find agv_description)/urdf/agv.xacro" />
+  
+	<!-- Launch visualization in rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find agv_description)/rviz/agv_rviz.rviz" required="true" />
+</launch>
