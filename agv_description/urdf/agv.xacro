@@ -282,15 +282,15 @@
     </plugin>
   </gazebo>
 
-<joint name="hokuyo_joint" type="fixed">
+<joint name="scan_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0 0 0.15" rpy="0 0 0"/>
     <parent link="base_link"/>
-    <child link="hokuyo_link"/>
+    <child link="base_scan"/>
   </joint>
 
   <!-- Hokuyo Laser -->
-  <link name="hokuyo_link">
+  <link name="base_scan">
     <collision>
       <origin xyz="0 0 0" rpy="${M_PI/2} 0 0"/>
       <geometry>
@@ -311,7 +311,7 @@
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
-    <gazebo reference="hokuyo_link">
+    <gazebo reference="base_scan">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -342,7 +342,7 @@
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
         <topicName>/scan</topicName>
-        <frameName>hokuyo_link</frameName>
+        <frameName>base_scan</frameName>
       </plugin>
     </sensor>
   </gazebo>

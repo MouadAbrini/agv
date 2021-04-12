@@ -12,7 +12,7 @@ class ConverVelocities():
         self.twist_vels = Twist()
         self.vr = Float64()
         self.vl = Float64()
-        self.rate = rospy.Rate(1)
+        self.rate = rospy.Rate(10)
 
     def callback(self, msg):
         self.twist_vels = msg
@@ -25,10 +25,10 @@ class ConverVelocities():
             self.rate.sleep()
 
     def convert_velocities(self):
-        L = 0.61
+        L = 0.65
         R = 0.08
-        self.vr = ((2*self.twist_vels.linear.x) + (self.twist_vels.angular.z*L))/(2*R)
-        self.vl = ((2*self.twist_vels.linear.x) - (self.twist_vels.angular.z*L))/(2*R)
+        self.vl = ((2*self.twist_vels.linear.x) + (self.twist_vels.angular.z*L))/(2*R)
+        self.vr = ((2*self.twist_vels.linear.x) - (self.twist_vels.angular.z*L))/(2*R)
 
 if __name__ == '__main__':
     rospy.init_node('convert_vels_node', anonymous=True)

@@ -33,5 +33,5 @@
   <include file="$(find agv_convert_velocities)/launch/move_agv.launch"/>
   <include file="$(find agv_lidar_filter)/launch/filter.launch"/>
   <include file="$(find agv_compute_odometry)/launch/odom_compute.launch"/>
-
+  <include file="$(find agv_localization)/launch/start_ekf_localization.launch"/>
 </launch>
